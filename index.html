@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test Sound</title>
+<link rel="stylesheet" type="text/css" href="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.css">
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.js"></script>
+<script src="cordova.js"></script>
+</head>
+
+<body>
+<div data-role="page">
+  <div data-role="header">
+    <h1>Test Sound</h1>
+  </div>
+  <div data-role="content">
+    <ul data-role="listview" data-inset="true">
+      <li class="sound1"><a href="">Sound 1</a></li>
+      <li class="sound2"><a href="">Sound 1</a></li>
+      <li class="sound3"><a href="">Sound 1</a></li>
+    </ul>
+  </div>
+  <div data-role="footer">
+    <h3>End Sound</h3>
+  </div>
+</div>
+<script>
+    $(document).ready(function() {
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', 'correct.mp3');
+        //audioElement.setAttribute('autoplay', 'autoplay');
+        //audioElement.load()
+		var audioIncorrect = document.createElement('audio');
+        audioIncorrect.setAttribute('src', 'beep.mp3');
+
+        $.get();
+
+        audioElement.addEventListener("load", function() {
+            audioElement.play();
+        }, true);
+		audioIncorrect.addEventListener("load", function() {
+            audioIncorrect.play();
+        }, true);
+
+        $('.sound1, .sound3').click(function() {
+            audioElement.play();
+        });
+
+        $('.sound2').click(function() {
+            audioIncorrect.play();
+        });
+    });
+</script> 
+</body>
+</html>
